@@ -77,12 +77,14 @@ class App extends Component {
         <p className="App-intro">
           Enter latitude and longitude coordinates and click submit to view image 
         </p>
-        <i className="fa fa-map-marker" />
         <form onSubmit={this.handleSubmit}>
           <input className="" type="text" value={this.state.value} onChange={this.handleChange}/>
           <input type="submit" value="Submit coordinates"/>
         </form>
-        <img src={this.state.image} />
+        <div className="App-image">
+          <i className="fa fa-map-marker" />
+          <img src={this.state.image} />
+        </div>
       </div>
     );
   }

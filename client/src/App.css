@@ -22,13 +22,18 @@
   font-size: large;
 }
 
+.App-image {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
 i {
-  font-size: 48px;
-  cursor: pointer;
-  color: black;
-  width: 10px;
-  margin: 5px;
-  padding-left: 5px;
+  position: absolute;
+  display: flex;
+  /* align-items: flex-end; */
+
 }
 
 @keyframes App-logo-spin {
