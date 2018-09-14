@@ -6,6 +6,7 @@ class App extends Component {
     super(props);
     this.state = {
       image: '',
+      imageReceived: false,
       lat: null,
       long: null,
       response: '',
@@ -23,7 +24,6 @@ class App extends Component {
   };
 
   callNasaApi = async (lat, long) => {
-
     const api_key = '7ZLmyLopCrbUeU1A6wxctoeX1MxbNmrHFOj9MiRj';
 
     const response = await fetch(`https://api.nasa.gov/planetary/earth/imagery?lon=${long}&lat=${lat}&date=2014-02-01&cloud_score=True&api_key=${api_key}`);
@@ -52,54 +52,55 @@ class App extends Component {
     }
 
     this.callNasaApi(lat, long)
-      .then(res => this.setState({ image: res.url }))
+      .then(res => this.setState({ 
+        image: res.url,
+        imageReceived: true
+      }))
       .catch(err => console.log(err));
   }
 
   render() {
-    const image = (
-      <div className="image">
-        <img src={this.state.image} />
+    const image = this.state.imageReceived ? 
+    (
+      <div className="App-image-container">
+        <div className="image">
+          <img src={this.state.image} />
+        </div>
+        <div className="App-image">
+          <div className="hl">
+            <div className="vl"></div>
+            <div className="vl"></div>
+            <div className="vl"></div>
+          </div>
+          <div className="hl">
+            <div className="vl"></div>
+            <div className="vl"></div>
+            <div className="vl"></div>
+          </div>
+          <div className="hl">
+            <div className="vl"></div>
+            <div className="vl"></div>
+            <div className="vl"></div>
+          </div>
+        </div>
+        <i className="fa fa-map-marker" />
       </div>
-    );
+    ) : null;
 
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Mapping App</h1>
         </header>
-        <p className="App-intro">
+        <h3 className="App-intro">
           Enter latitude and longitude coordinates and click submit to view image 
-        </p>
+        </h3>
         <p>Enter coordinates in the correct format with a comma to separate them.</p>
         <form onSubmit={this.handleSubmit}>
           <input className="" type="text" value={this.state.value} onChange={this.handleChange} placeholder="latitude, longitude" />
           <input type="submit" value="Submit coordinates"/>
         </form>
-        <div className="App-image-container">
-          <i className="fa fa-map-marker" />
-          <div className="image">
-            <img src={this.state.image} />
-          </div>
-          <div className="App-image">
-            <div className="hl">
-              <div className="vl"></div>
-              <div className="vl"></div>
-              <div className="vl"></div>
-            </div>
-            <div className="hl">
-              <div className="vl"></div>
-              <div className="vl"></div>
-              <div className="vl"></div>
-            </div>
-            <div className="hl">
-              <div className="vl"></div>
-              <div className="vl"></div>
-              <div className="vl"></div>
-            </div>
-          </div>
-        </div>
-        
+        {image}
       </div>
     );
   }

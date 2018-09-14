@@ -39,10 +39,8 @@
 
 i {
   position: absolute;
-  align-content: center; 
+  margin-top: 248px;
   display: flex;
-  
-  justify-content: center; 
 }
 
 .hl {
