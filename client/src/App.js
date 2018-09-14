@@ -58,22 +58,7 @@ class App extends Component {
 
   render() {
     const image = (
-      <div className="App-image">
-        <div className="hl">
-          <div className="vl"></div>
-          <div className="vl"></div>
-          <div className="vl"></div>
-        </div>
-        <div className="hl">
-          <div className="vl"></div>
-          <div className="vl"></div>
-          <div className="vl"></div>
-        </div>
-        <div className="hl">
-          <div className="vl"></div>
-          <div className="vl"></div>
-          <div className="vl"></div>
-        </div>
+      <div className="image">
         <img src={this.state.image} />
       </div>
     );
@@ -82,7 +67,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Mapping App</h1>
-
         </header>
         <p className="App-intro">
           Enter latitude and longitude coordinates and click submit to view image 
@@ -92,7 +76,30 @@ class App extends Component {
           <input className="" type="text" value={this.state.value} onChange={this.handleChange} placeholder="latitude, longitude" />
           <input type="submit" value="Submit coordinates"/>
         </form>
-        {image}
+        <div className="App-image-container">
+          <i className="fa fa-map-marker" />
+          <div className="image">
+            <img src={this.state.image} />
+          </div>
+          <div className="App-image">
+            <div className="hl">
+              <div className="vl"></div>
+              <div className="vl"></div>
+              <div className="vl"></div>
+            </div>
+            <div className="hl">
+              <div className="vl"></div>
+              <div className="vl"></div>
+              <div className="vl"></div>
+            </div>
+            <div className="hl">
+              <div className="vl"></div>
+              <div className="vl"></div>
+              <div className="vl"></div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     );
   }

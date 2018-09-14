@@ -25,19 +25,24 @@
 .App-image {
   display: flex;
   flex-direction: column;
+  position: absolute;
+  
   width: 512px;
   height: 512px;
   border: 1px solid black;
-  margin: auto;
 }
 
-/* i {
-  position: absolute;
-} */
-
-img {
+.App-image-container {
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+i {
+  position: absolute;
+  align-content: center; 
+  display: flex;
+  
+  justify-content: center; 
 }
 
 .hl {
@@ -52,7 +57,12 @@ img {
   border: 1px solid black;
 }
 
-
+.image {
+  position: absolute;
+  align-content: center; 
+  display: flex;
+  justify-content: center; 
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
