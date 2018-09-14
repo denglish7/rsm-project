@@ -24,17 +24,35 @@
 
 .App-image {
   display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
+  flex-direction: column;
+  width: 512px;
+  height: 512px;
+  border: 1px solid black;
+  margin: auto;
 }
 
-i {
+/* i {
   position: absolute;
+} */
+
+img {
   display: flex;
-  /* align-items: flex-end; */
-
+  align-items: center;
 }
+
+.hl {
+  flex: 1;
+  display: flex;
+  width: 512px;
+  border: 1px solid black;
+}
+
+.vl {
+  flex: 1;
+  border: 1px solid black;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

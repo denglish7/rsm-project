@@ -13,16 +13,6 @@ class App extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.callApi()
-  //     .then(res => this.setState({ response: res.express }))
-  //     .catch(err => console.log(err));
-  // }
-
-  getLatLong = () => {
-
-  }
-
   callApi = async () => {
     const response = await fetch('/api/backend');
     const body = await response.json();
@@ -64,10 +54,30 @@ class App extends Component {
     this.callNasaApi(lat, long)
       .then(res => this.setState({ image: res.url }))
       .catch(err => console.log(err));
-    
   }
 
   render() {
+    const image = (
+      <div className="App-image">
+        <div className="hl">
+          <div className="vl"></div>
+          <div className="vl"></div>
+          <div className="vl"></div>
+        </div>
+        <div className="hl">
+          <div className="vl"></div>
+          <div className="vl"></div>
+          <div className="vl"></div>
+        </div>
+        <div className="hl">
+          <div className="vl"></div>
+          <div className="vl"></div>
+          <div className="vl"></div>
+        </div>
+        <img src={this.state.image} />
+      </div>
+    );
+
     return (
       <div className="App">
         <header className="App-header">
@@ -77,14 +87,12 @@ class App extends Component {
         <p className="App-intro">
           Enter latitude and longitude coordinates and click submit to view image 
         </p>
+        <p>Enter coordinates in the correct format with a comma to separate them.</p>
         <form onSubmit={this.handleSubmit}>
-          <input className="" type="text" value={this.state.value} onChange={this.handleChange}/>
+          <input className="" type="text" value={this.state.value} onChange={this.handleChange} placeholder="latitude, longitude" />
           <input type="submit" value="Submit coordinates"/>
         </form>
-        <div className="App-image">
-          <i className="fa fa-map-marker" />
-          <img src={this.state.image} />
-        </div>
+        {image}
       </div>
     );
   }
