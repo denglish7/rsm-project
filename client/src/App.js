@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { NASA_API_KEY } from './creds';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends Component {
   };
 
   callNasaApi = async (lat, long) => {
-    const api_key = '7ZLmyLopCrbUeU1A6wxctoeX1MxbNmrHFOj9MiRj';
+    const api_key = NASA_API_KEY;
 
     const response = await fetch(`https://api.nasa.gov/planetary/earth/imagery?lon=${long}&lat=${lat}&date=2014-02-01&cloud_score=True&api_key=${api_key}`);
     const body = await response.json();
